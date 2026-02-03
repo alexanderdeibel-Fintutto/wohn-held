@@ -124,7 +124,7 @@ export default function Register() {
 
         <AnimatedCard delay={100}>
           <CardHeader className="space-y-1 pb-4">
-            <CardTitle className="text-xl">Registrieren</CardTitle>
+            <CardTitle as="h2" className="text-xl">Registrieren</CardTitle>
             <CardDescription>
               Erstellen Sie Ihr Mieter-Konto
             </CardDescription>
