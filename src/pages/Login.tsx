@@ -94,7 +94,7 @@ export default function Login() {
 
         <AnimatedCard delay={100}>
           <CardHeader className="space-y-1">
-            <CardTitle className="text-xl">Anmelden</CardTitle>
+            <CardTitle as="h2" className="text-xl">Anmelden</CardTitle>
             <CardDescription>
               Geben Sie Ihre Zugangsdaten ein
             </CardDescription>
