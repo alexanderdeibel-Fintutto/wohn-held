@@ -160,7 +160,7 @@ export default {
   					transform: 'scale(0.8) translateY(10px)'
   				}
   			},
-  			'float': {
+  			float: {
   				'0%, 100%': {
   					transform: 'translateY(0)'
   				},
@@ -198,7 +198,7 @@ export default {
   					transform: 'scale(1)'
   				}
   			},
-  			'shimmer': {
+  			shimmer: {
   				'0%': {
   					backgroundPosition: '-200% 0'
   				},
@@ -222,7 +222,7 @@ export default {
   					transform: 'scale(1)'
   				}
   			},
-  			'wiggle': {
+  			wiggle: {
   				'0%, 100%': {
   					transform: 'rotate(0deg)'
   				},
@@ -239,13 +239,13 @@ export default {
   			'accordion-up': 'accordion-up 0.2s ease-out',
   			'fab-open': 'fab-open 0.2s ease-out forwards',
   			'fab-close': 'fab-close 0.15s ease-in forwards',
-  			'float': 'float 3s ease-in-out infinite',
+  			float: 'float 3s ease-in-out infinite',
   			'pulse-soft': 'pulse-soft 2s ease-in-out infinite',
   			'slide-up': 'slide-up 0.4s ease-out',
   			'scale-in': 'scale-in 0.3s ease-out',
-  			'shimmer': 'shimmer 2s linear infinite',
+  			shimmer: 'shimmer 2s linear infinite',
   			'bounce-in': 'bounce-in 0.5s ease-out',
-  			'wiggle': 'wiggle 0.5s ease-in-out'
+  			wiggle: 'wiggle 0.5s ease-in-out'
   		}
   	}
   },
