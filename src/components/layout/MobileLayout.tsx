@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import { BottomNavigation } from "./BottomNavigation";
 import { OnboardingFlow } from "@/components/onboarding/OnboardingFlow";
 import { useOnboarding } from "@/hooks/useOnboarding";
+import heroBackground from "@/assets/gamma-bg-mieter-4k.png";
 
 interface MobileLayoutProps {
   children: ReactNode;
@@ -20,7 +21,15 @@ export function MobileLayout({ children, showNav = true }: MobileLayoutProps) {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen relative">
+      {/* Global background image */}
+      <img
+        src={heroBackground}
+        alt=""
+        className="fixed inset-0 w-full h-full object-cover -z-10"
+      />
+      <div className="fixed inset-0 bg-black/30 -z-10" />
+
       <AnimatePresence mode="wait">
         <motion.main
           key={location.pathname}
