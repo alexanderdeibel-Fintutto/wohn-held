@@ -1,27 +1,15 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { MobileLayout } from "@/components/layout/MobileLayout";
+import { PageHeader } from "@/components/layout/PageHeader";
 import { AnimatedCard } from "@/components/ui/AnimatedCard";
 import { IconBadge } from "@/components/ui/IconBadge";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { ShimmerSkeleton } from "@/components/ui/ShimmerSkeleton";
-import { CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-  ArrowLeft,
-  Plus,
-  Droplet,
-  Zap,
-  Flame,
-  Wind,
-  DoorOpen,
-  AlertTriangle,
-  HelpCircle,
-  Clock,
-  CheckCircle2,
-  Wrench,
-} from "lucide-react";
+import { Plus, Droplet, Zap, Flame, Wind, DoorOpen, AlertTriangle, HelpCircle, Clock, CheckCircle2, Wrench } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { cn } from "@/lib/utils";
@@ -71,14 +59,12 @@ export default function MeineMeldungen() {
   useEffect(() => {
     async function fetchIssues() {
       if (!user) return;
-
       try {
         const { data, error } = await supabase
           .from("issues")
           .select("id, category, description, priority, status, image_url, created_at")
           .eq("user_id", user.id)
           .order("created_at", { ascending: false });
-
         if (error) throw error;
         setIssues(data || []);
       } catch (err) {
@@ -87,38 +73,24 @@ export default function MeineMeldungen() {
         setLoading(false);
       }
     }
-
     fetchIssues();
   }, [user]);
 
   return (
     <MobileLayout showNav={false}>
-      {/* Header */}
-      <div className="relative overflow-hidden">
-        <div className="absolute inset-0 gradient-coral opacity-95" />
-        <div className="absolute inset-0 gradient-mesh opacity-30" />
-        <div className="relative px-4 pt-12 pb-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <Link to="/" className="text-white hover:bg-white/10 p-2 rounded-xl transition-colors -ml-2">
-                <ArrowLeft className="h-6 w-6" />
-              </Link>
-              <div>
-                <h1 className="text-xl font-bold text-white">Meine Meldungen</h1>
-                <p className="text-white/80 text-sm">
-                  {loading ? "Laden..." : `${issues.length} Meldung${issues.length !== 1 ? "en" : ""}`}
-                </p>
-              </div>
-            </div>
-            <Link to="/mangel-melden">
-              <Button size="sm" variant="secondary" className="gap-1.5 shadow-lg">
-                <Plus className="h-4 w-4" />
-                Neu
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </div>
+      <PageHeader
+        title="Meine Meldungen"
+        subtitle={loading ? "Laden..." : `${issues.length} Meldung${issues.length !== 1 ? "en" : ""}`}
+        backTo="/"
+        rightContent={
+          <Link to="/mangel-melden">
+            <Button size="sm" variant="secondary" className="gap-1.5 shadow-lg">
+              <Plus className="h-4 w-4" />
+              Neu
+            </Button>
+          </Link>
+        }
+      />
 
       <div className="px-4 py-4 space-y-3 pb-8">
         {loading ? (
@@ -132,19 +104,13 @@ export default function MeineMeldungen() {
             </AnimatedCard>
           ))
         ) : issues.length === 0 ? (
-          <EmptyState
-            title="Keine Meldungen"
-            description="Sie haben noch keine Mängel gemeldet."
-            actionLabel="Mangel melden"
-            onAction={() => navigate("/mangel-melden")}
-          />
+          <EmptyState title="Keine Meldungen" description="Sie haben noch keine Mängel gemeldet." actionLabel="Mangel melden" onAction={() => navigate("/mangel-melden")} />
         ) : (
           issues.map((issue, index) => {
             const cat = categoryConfig[issue.category] || categoryConfig.sonstiges;
             const stat = statusConfig[issue.status] || statusConfig.offen;
             const prio = priorityLabels[issue.priority] || priorityLabels.mittel;
             const CatIcon = cat.icon;
-
             return (
               <AnimatedCard key={issue.id} delay={index * 60}>
                 <CardContent className="p-4">
@@ -155,9 +121,7 @@ export default function MeineMeldungen() {
                         <span className="font-semibold text-sm">{cat.label}</span>
                         <StatusBadge status={stat.variant} label={stat.label} />
                       </div>
-                      <p className="text-sm text-muted-foreground line-clamp-2 mb-2">
-                        {issue.description}
-                      </p>
+                      <p className="text-sm text-muted-foreground line-clamp-2 mb-2">{issue.description}</p>
                       <div className="flex items-center gap-3">
                         <div className="flex items-center gap-1.5">
                           <span className={cn("w-2.5 h-2.5 rounded-full", prio.color)} />
@@ -171,12 +135,7 @@ export default function MeineMeldungen() {
                   </div>
                   {issue.image_url && (
                     <div className="mt-3 rounded-lg overflow-hidden">
-                      <img
-                        src={issue.image_url}
-                        alt="Mangel-Foto"
-                        className="w-full h-32 object-cover"
-                        loading="lazy"
-                      />
+                      <img src={issue.image_url} alt="Mangel-Foto" className="w-full h-32 object-cover" loading="lazy" />
                     </div>
                   )}
                 </CardContent>

@@ -1,5 +1,6 @@
 import { useAuth } from "@/contexts/AuthContext";
 import { MobileLayout } from "@/components/layout/MobileLayout";
+import { PageHeader } from "@/components/layout/PageHeader";
 import { AnimatedCard } from "@/components/ui/AnimatedCard";
 import mieterLogo from "@/assets/mieter-logo.svg";
 
@@ -13,7 +14,6 @@ import {
   AlertTriangle, 
   Gauge, 
   Wrench,
-  MessageCircle,
   ChevronRight,
   Calendar
 } from "lucide-react";
@@ -57,17 +57,14 @@ export default function Dashboard() {
   return (
     <MobileLayout>
       {/* Hero Header */}
-      <div className="relative">
-        <div className="px-4 pt-12 pb-10">
-          <div className="flex items-center gap-4">
-            {/* Avatar with gradient ring */}
-            <img src={mieterLogo} alt="Fintutto Mieter" className="w-14 h-14 rounded-2xl shadow-lg" />
-            <div>
-              <p className="text-white/70 text-sm">{getGreeting()}</p>
-              <h1 className="text-2xl font-bold text-white">
-                {userName}!
-              </h1>
-            </div>
+      <div className="px-4 pt-12 pb-10">
+        <div className="flex items-center gap-4">
+          <img src={mieterLogo} alt="Fintutto Mieter" className="w-14 h-14 rounded-2xl shadow-lg" />
+          <div>
+            <p className="text-white/70 text-sm">{getGreeting()}</p>
+            <h1 className="text-2xl font-bold text-white">
+              {userName}!
+            </h1>
           </div>
         </div>
       </div>
@@ -144,7 +141,7 @@ export default function Dashboard() {
 
         {/* Quick Actions with colorful icons */}
         <div>
-          <h2 className="text-sm font-semibold text-muted-foreground mb-3 px-1 uppercase tracking-wide">
+          <h2 className="text-sm font-semibold text-white/80 mb-3 px-1 uppercase tracking-wide">
             Schnellzugriff
           </h2>
           <div className="grid grid-cols-2 gap-3">
@@ -173,14 +170,13 @@ export default function Dashboard() {
 
         {/* Last Messages with avatars */}
         <div>
-          <h2 className="text-sm font-semibold text-muted-foreground mb-3 px-1 uppercase tracking-wide">
+          <h2 className="text-sm font-semibold text-white/80 mb-3 px-1 uppercase tracking-wide">
             Letzte Nachrichten
           </h2>
           <AnimatedCard delay={300}>
             {mockData.lastMessages.map((msg) => (
               <Link key={msg.id} to="/chat">
                 <CardContent className="p-4 flex items-center gap-3 hover:bg-muted/50 transition-colors rounded-lg">
-                  {/* Avatar with initials */}
                   <div className="w-12 h-12 rounded-2xl gradient-sky flex items-center justify-center flex-shrink-0 shadow-md">
                     <span className="text-white font-semibold text-sm">
                       {msg.from.split(' ').map(n => n[0]).join('')}
