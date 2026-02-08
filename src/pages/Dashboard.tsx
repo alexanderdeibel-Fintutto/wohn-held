@@ -1,6 +1,7 @@
 import { useAuth } from "@/contexts/AuthContext";
 import { MobileLayout } from "@/components/layout/MobileLayout";
 import { AnimatedCard } from "@/components/ui/AnimatedCard";
+import mieterLogo from "@/assets/mieter-logo.svg";
 
 import { IconBadge } from "@/components/ui/IconBadge";
 import { StatusBadge } from "@/components/ui/StatusBadge";
@@ -60,9 +61,7 @@ export default function Dashboard() {
         <div className="px-4 pt-12 pb-10">
           <div className="flex items-center gap-4">
             {/* Avatar with gradient ring */}
-            <div className="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur flex items-center justify-center border-2 border-white/30 shadow-lg">
-              <span className="text-2xl font-bold text-white">{userName.charAt(0)}</span>
-            </div>
+            <img src={mieterLogo} alt="Fintutto Mieter" className="w-14 h-14 rounded-2xl shadow-lg" />
             <div>
               <p className="text-white/70 text-sm">{getGreeting()}</p>
               <h1 className="text-2xl font-bold text-white">
