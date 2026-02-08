@@ -1,4 +1,5 @@
 import { MobileLayout } from "@/components/layout/MobileLayout";
+import mieterLogo from "@/assets/mieter-logo.svg";
 import { AnimatedCard } from "@/components/ui/AnimatedCard";
 import { IconBadge } from "@/components/ui/IconBadge";
 import { CardContent } from "@/components/ui/card";
@@ -71,9 +72,7 @@ export default function Einstellungen() {
           <CardContent className="p-5">
             <div className="flex items-center gap-4">
               <div className="relative">
-                <div className="w-16 h-16 rounded-2xl gradient-primary flex items-center justify-center shadow-lg">
-                  <span className="text-2xl font-bold text-white">{userName.charAt(0)}</span>
-                </div>
+                <img src={mieterLogo} alt="Fintutto Mieter" className="w-16 h-16 rounded-2xl shadow-lg" />
                 <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-success border-2 border-background flex items-center justify-center">
                   <span className="text-white text-[10px]">✓</span>
                 </div>

@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import mieterLogo from "@/assets/mieter-logo.svg";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
@@ -115,9 +116,7 @@ export default function Register() {
       <div className="w-full max-w-sm relative z-10">
         {/* Logo/Header with animation */}
         <div className="text-center mb-6 animate-slide-up">
-          <div className="w-20 h-20 gradient-primary rounded-3xl flex items-center justify-center mx-auto mb-4 shadow-2xl shadow-primary/30 animate-float">
-            <span className="text-4xl text-white font-bold">F</span>
-          </div>
+          <img src={mieterLogo} alt="Fintutto Mieter" className="w-20 h-20 rounded-3xl mx-auto mb-4 shadow-2xl shadow-primary/30 animate-float" />
           <h1 className="text-2xl font-bold text-foreground">Fintutto Mieter</h1>
           <p className="text-muted-foreground mt-1">Neues Konto erstellen</p>
         </div>

@@ -1,4 +1,5 @@
 import { MobileLayout } from "@/components/layout/MobileLayout";
+import mieterLogo from "@/assets/mieter-logo.svg";
 import { AnimatedCard } from "@/components/ui/AnimatedCard";
 import { IconBadge } from "@/components/ui/IconBadge";
 import { CardContent } from "@/components/ui/card";
@@ -53,10 +54,8 @@ export default function Mehr() {
             <div className="flex items-center gap-4">
               {/* Large avatar with gradient border */}
               <div className="relative">
-                <div className="w-18 h-18 p-1 rounded-2xl gradient-primary">
-                  <div className="w-full h-full w-16 h-16 rounded-xl bg-card flex items-center justify-center">
-                    <span className="text-2xl font-bold text-primary">{userInitial}</span>
-                  </div>
+                <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-lg">
+                  <img src={mieterLogo} alt="Fintutto Mieter" className="w-full h-full" />
                 </div>
                 {/* Edit button */}
                 <button className="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-secondary flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
