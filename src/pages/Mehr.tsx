@@ -1,4 +1,5 @@
 import { MobileLayout } from "@/components/layout/MobileLayout";
+import { PageHeader } from "@/components/layout/PageHeader";
 import mieterLogo from "@/assets/mieter-logo.svg";
 import { AnimatedCard } from "@/components/ui/AnimatedCard";
 import { IconBadge } from "@/components/ui/IconBadge";
@@ -6,14 +7,7 @@ import { CardContent } from "@/components/ui/card";
 import { useAuth } from "@/contexts/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 import { 
-  Home, 
-  FileText, 
-  BookOpen, 
-  Phone, 
-  Settings, 
-  LogOut,
-  ChevronRight,
-  Edit3
+  Home, FileText, BookOpen, Phone, Settings, LogOut, ChevronRight, Edit3
 } from "lucide-react";
 
 const menuItems = [
@@ -28,7 +22,6 @@ export default function Mehr() {
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
   const userName = user?.user_metadata?.name || "Mieter";
-  const userInitial = userName.charAt(0).toUpperCase();
 
   const handleLogout = async () => {
     await signOut();
@@ -37,27 +30,17 @@ export default function Mehr() {
 
   return (
     <MobileLayout>
-      {/* Header with animated gradient */}
-      <div className="relative overflow-hidden">
-        <div className="absolute inset-0 gradient-primary opacity-95" />
-        <div className="absolute inset-0 gradient-mesh opacity-30" />
-        <div className="relative px-4 pt-12 pb-8">
-          <h1 className="text-2xl font-bold text-white">Mehr</h1>
-          <p className="text-white/80 mt-1">Einstellungen & Informationen</p>
-        </div>
-      </div>
+      <PageHeader title="Mehr" subtitle="Einstellungen & Informationen" />
 
-      <div className="px-4 -mt-4 space-y-4 pb-4">
+      <div className="px-4 -mt-2 space-y-4 pb-4">
         {/* User Profile Card */}
         <AnimatedCard delay={0} accentColor="primary">
           <CardContent className="p-5">
             <div className="flex items-center gap-4">
-              {/* Large avatar with gradient border */}
               <div className="relative">
                 <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-lg">
                   <img src={mieterLogo} alt="Fintutto Mieter" className="w-full h-full" />
                 </div>
-                {/* Edit button */}
                 <button className="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-secondary flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
                   <Edit3 className="h-3.5 w-3.5 text-white" />
                 </button>
@@ -74,10 +57,10 @@ export default function Mehr() {
           </CardContent>
         </AnimatedCard>
 
-        {/* Menu Items with colorful icons */}
+        {/* Menu Items */}
         <AnimatedCard delay={100}>
           <div className="divide-y divide-border/50">
-            {menuItems.map((item, index) => {
+            {menuItems.map((item) => {
               const Icon = item.icon;
               return (
                 <Link key={item.to} to={item.to}>
