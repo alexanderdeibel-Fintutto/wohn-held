@@ -4,7 +4,6 @@ import { useLocation } from "react-router-dom";
 import { BottomNavigation } from "./BottomNavigation";
 import { OnboardingFlow } from "@/components/onboarding/OnboardingFlow";
 import { useOnboarding } from "@/hooks/useOnboarding";
-import heroBackground from "@/assets/gamma-bg-rainbow-vertical.svg";
 
 interface MobileLayoutProps {
   children: ReactNode;
@@ -15,19 +14,14 @@ export function MobileLayout({ children, showNav = true }: MobileLayoutProps) {
   const location = useLocation();
   const { hasCompletedOnboarding, isLoading, completeOnboarding } = useOnboarding();
 
-  // Show onboarding for first-time users
   if (!isLoading && hasCompletedOnboarding === false) {
     return <OnboardingFlow onComplete={completeOnboarding} />;
   }
 
   return (
     <div className="min-h-screen relative">
-      {/* Global background image */}
-      <img
-        src={heroBackground}
-        alt=""
-        className="fixed inset-0 w-full h-full object-cover -z-10"
-      />
+      {/* Global radial gradient background */}
+      <div className="fixed inset-0 -z-10 bg-gradient-radial" />
       <div className="fixed inset-0 bg-black/15 -z-10" />
 
       <AnimatePresence mode="wait">
