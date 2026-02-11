@@ -1,6 +1,6 @@
 import { useState } from "react";
 import mieterLogo from "@/assets/mieter-logo.svg";
-import heroBackground from "@/assets/gamma-bg-rainbow-vertical.svg";
+
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
@@ -46,8 +46,7 @@ export default function Login() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4 relative overflow-hidden">
-      {/* Global gradient background */}
-      <img src={heroBackground} alt="" className="fixed inset-0 w-full h-full object-cover -z-10" />
+      <div className="fixed inset-0 -z-10 bg-gradient-radial" />
       <div className="fixed inset-0 bg-black/15 -z-10" />
 
       <div className="w-full max-w-4xl relative z-10 flex flex-col lg:flex-row lg:items-center lg:gap-16">

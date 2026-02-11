@@ -232,6 +232,22 @@
 }
 
 @layer utilities {
+  /* Radial rainbow gradient – center bottom-middle, orange core */
+  .bg-gradient-radial {
+    background: radial-gradient(ellipse 120% 100% at 50% 100%,
+      #F97316 0%,
+      #EAB308 12%,
+      #EC4899 24%,
+      #E879F9 34%,
+      #8B5CF6 46%,
+      #6366F1 56%,
+      #2563EB 66%,
+      #06B6D4 76%,
+      #1a1030 88%,
+      #0f0f1a 100%
+    );
+  }
+
   /* Gradient utilities */
   .gradient-primary {
     background: var(--gradient-primary);
