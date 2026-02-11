@@ -78,21 +78,21 @@ export default function Dashboard() {
             <div className="grid grid-cols-2 gap-3">
               <Link to="/zaehler-ablesen">
                 <AnimatedCard delay={200} accentColor="mint" className="h-full">
-                  <CardContent className="p-4 flex flex-col items-center text-center">
+                  <CardContent className="p-5 flex flex-col items-center text-center">
                     <div className="w-14 h-14 rounded-2xl gradient-mint flex items-center justify-center mb-3 shadow-lg shadow-mint/20 animate-float">
                       <Gauge className="h-7 w-7 text-white" />
                     </div>
-                    <span className="text-sm font-semibold">Zähler ablesen</span>
+                    <span className="text-sm font-semibold text-white/90">Zähler ablesen</span>
                   </CardContent>
                 </AnimatedCard>
               </Link>
               <Link to="/mangel-melden">
                 <AnimatedCard delay={250} accentColor="coral" className="h-full">
-                  <CardContent className="p-4 flex flex-col items-center text-center">
+                  <CardContent className="p-5 flex flex-col items-center text-center">
                     <div className="w-14 h-14 rounded-2xl gradient-coral flex items-center justify-center mb-3 shadow-lg shadow-coral/20 animate-float" style={{ animationDelay: "0.5s" }}>
                       <Wrench className="h-7 w-7 text-white" />
                     </div>
-                    <span className="text-sm font-semibold">Mangel melden</span>
+                    <span className="text-sm font-semibold text-white/90">Mangel melden</span>
                   </CardContent>
                 </AnimatedCard>
               </Link>
@@ -128,7 +128,7 @@ function RentCard({ nextRent }: { nextRent: { amount: number; dueDate: Date | nu
   return (
     <AnimatedCard delay={0} accentColor="primary">
       <CardHeader className="pb-2">
-        <CardTitle className="text-base font-medium text-muted-foreground flex items-center gap-2">
+        <CardTitle className="text-base font-medium text-white/70 flex items-center gap-2">
           <IconBadge icon={Euro} variant="primary" size="sm" />
           Nächste Mietzahlung
         </CardTitle>
@@ -144,19 +144,19 @@ function RentCard({ nextRent }: { nextRent: { amount: number; dueDate: Date | nu
               showLabel={false}
             />
             <div>
-              <p className="text-3xl font-bold text-foreground">
+              <p className="text-3xl font-bold text-white">
                 {nextRent.amount.toFixed(2)} €
               </p>
               <div className="flex items-center gap-2 mt-1">
-                <Calendar className="h-3.5 w-3.5 text-muted-foreground" />
-                <p className="text-sm text-muted-foreground">
+                <Calendar className="h-3.5 w-3.5 text-white/50" />
+                <p className="text-sm text-white/60">
                   {daysUntilDue > 0 ? `In ${daysUntilDue} Tagen` : daysUntilDue === 0 ? "Heute fällig" : "Überfällig"}
                 </p>
               </div>
             </div>
           </div>
           <Link to="/finanzen">
-            <Button variant="ghost" size="sm" className="group">
+            <Button variant="ghost" size="sm" className="group text-white/70 hover:text-white hover:bg-white/10">
               Details
               <ChevronRight className="h-4 w-4 ml-1 transition-transform group-hover:translate-x-1" />
             </Button>
@@ -171,7 +171,7 @@ function IssuesCard({ count }: { count: number }) {
   return (
     <AnimatedCard delay={100} accentColor={count > 0 ? "coral" : "mint"}>
       <CardHeader className="pb-2">
-        <CardTitle className="text-base font-medium text-muted-foreground flex items-center gap-2">
+        <CardTitle className="text-base font-medium text-white/70 flex items-center gap-2">
           <IconBadge icon={count > 0 ? AlertTriangle : CheckCircle} variant={count > 0 ? "warning" : "success"} size="sm" />
           {count > 0 ? "Offene Meldungen" : "Meldungen"}
         </CardTitle>
@@ -183,7 +183,7 @@ function IssuesCard({ count }: { count: number }) {
               <span className={`text-2xl font-bold ${count > 0 ? "text-warning" : "text-success"}`}>{count}</span>
             </div>
             <div>
-              <p className="font-medium">{count > 0 ? "Meldungen offen" : "Keine offenen Meldungen"}</p>
+              <p className="font-medium text-white/90">{count > 0 ? "Meldungen offen" : "Keine offenen Meldungen"}</p>
               <StatusBadge 
                 status={count > 0 ? "warning" : "success"} 
                 label={count > 0 ? "In Bearbeitung" : "Alles erledigt"} 
@@ -191,7 +191,7 @@ function IssuesCard({ count }: { count: number }) {
             </div>
           </div>
           <Link to="/meine-meldungen">
-            <Button variant="ghost" size="sm" className="group">
+            <Button variant="ghost" size="sm" className="group text-white/70 hover:text-white hover:bg-white/10">
               Ansehen
               <ChevronRight className="h-4 w-4 ml-1 transition-transform group-hover:translate-x-1" />
             </Button>
@@ -222,7 +222,7 @@ function MessagesSection({ messages }: { messages: { id: string; senderName: str
         <AnimatedCard delay={300}>
           {messages.map((msg) => (
             <Link key={msg.id} to="/chat">
-              <CardContent className="p-4 flex items-center gap-3 hover:bg-muted/50 transition-colors rounded-lg">
+              <CardContent className="p-4 flex items-center gap-3 hover:bg-white/[0.04] transition-colors rounded-xl min-h-[64px]">
                 <div className="w-12 h-12 rounded-2xl gradient-sky flex items-center justify-center flex-shrink-0 shadow-md">
                   <span className="text-white font-semibold text-sm">
                     {msg.senderName.split(' ').map(n => n[0]).join('')}
@@ -230,15 +230,15 @@ function MessagesSection({ messages }: { messages: { id: string; senderName: str
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
-                    <p className="font-semibold text-sm">{msg.senderName}</p>
+                    <p className="font-semibold text-sm text-white/90">{msg.senderName}</p>
                     {!msg.isRead && (
                       <span className="w-2 h-2 rounded-full bg-primary animate-pulse-soft" />
                     )}
                   </div>
-                  <p className="text-sm text-muted-foreground truncate">{msg.content}</p>
+                  <p className="text-sm text-white/50 truncate">{msg.content}</p>
                 </div>
                 <div className="flex flex-col items-end gap-1">
-                  <span className="text-xs text-muted-foreground">
+                  <span className="text-xs text-white/40">
                     {formatDistanceToNow(new Date(msg.createdAt), { addSuffix: false, locale: de })}
                   </span>
                   {!msg.isRead && (
