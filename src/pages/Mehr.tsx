@@ -7,7 +7,7 @@ import { CardContent } from "@/components/ui/card";
 import { useAuth } from "@/contexts/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 import { 
-  Home, FileText, BookOpen, Phone, Settings, LogOut, ChevronRight, Edit3
+  Home, FileText, BookOpen, Phone, Settings, LogOut, ChevronRight, Edit3, Sparkles
 } from "lucide-react";
 
 const menuItems = [
@@ -16,6 +16,7 @@ const menuItems = [
   { icon: BookOpen, label: "Hausordnung", to: "/hausordnung", description: "Regeln & Informationen", color: "mint" as const },
   { icon: Phone, label: "Notfallkontakte", to: "/notfallkontakte", description: "Wichtige Telefonnummern", color: "coral" as const },
   { icon: Settings, label: "Einstellungen", to: "/einstellungen", description: "Profil & Benachrichtigungen", color: "amber" as const },
+  { icon: Sparkles, label: "Fintutto Ökosystem", to: "/fintutto-apps", description: "Alle Apps entdecken", color: "primary" as const },
 ];
 
 export default function Mehr() {
