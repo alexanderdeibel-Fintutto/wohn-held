@@ -7,11 +7,15 @@ import { CardContent } from "@/components/ui/card";
 import { useAuth } from "@/contexts/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 import { 
-  Home, FileText, BookOpen, Phone, Settings, LogOut, ChevronRight, Edit3, Sparkles
+  Home, FileText, BookOpen, Phone, Settings, LogOut, ChevronRight, Edit3, Sparkles,
+  Shield, Calculator, FileOutput
 } from "lucide-react";
 
 const menuItems = [
-  { icon: Home, label: "Meine Wohnung", to: "/wohnung", description: "Adresse & Wohnungsdaten", color: "primary" as const },
+  { icon: Shield, label: "Mietrecht-Checker", to: "/checker", description: "10 Checks für Ihre Rechte", color: "primary" as const },
+  { icon: FileOutput, label: "Formulare", to: "/formulare", description: "Rechtssichere Dokumente", color: "coral" as const },
+  { icon: Calculator, label: "Rechner", to: "/rechner", description: "Miete, Kaution & mehr", color: "mint" as const },
+  { icon: Home, label: "Meine Wohnung", to: "/wohnung", description: "Adresse & Wohnungsdaten", color: "sky" as const },
   { icon: FileText, label: "Dokumente", to: "/dokumente", description: "Mietvertrag, Abrechnungen", color: "sky" as const },
   { icon: BookOpen, label: "Hausordnung", to: "/hausordnung", description: "Regeln & Informationen", color: "mint" as const },
   { icon: Phone, label: "Notfallkontakte", to: "/notfallkontakte", description: "Wichtige Telefonnummern", color: "coral" as const },

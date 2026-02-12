@@ -28,6 +28,9 @@ const Notfallkontakte = lazy(() => import("./pages/Notfallkontakte"));
 const Einstellungen = lazy(() => import("./pages/Einstellungen"));
 const MeineMeldungen = lazy(() => import("./pages/MeineMeldungen"));
 const FintuttoApps = lazy(() => import("./pages/FintuttoApps"));
+const CheckerHub = lazy(() => import("./pages/CheckerHub"));
+const FormulareHub = lazy(() => import("./pages/FormulareHub"));
+const RechnerHub = lazy(() => import("./pages/RechnerHub"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -73,6 +76,9 @@ const App = () => (
                 <Route path="/einstellungen" element={<Einstellungen />} />
                 <Route path="/meine-meldungen" element={<MeineMeldungen />} />
                 <Route path="/fintutto-apps" element={<FintuttoApps />} />
+                <Route path="/checker" element={<CheckerHub />} />
+                <Route path="/formulare" element={<FormulareHub />} />
+                <Route path="/rechner" element={<RechnerHub />} />
               </Route>
 
               {/* Catch-all */}
