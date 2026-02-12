@@ -71,6 +71,45 @@ export type Database = {
           },
         ]
       }
+      credit_transactions: {
+        Row: {
+          amount: number
+          balance_after: number
+          created_at: string
+          description: string | null
+          id: string
+          stripe_payment_id: string | null
+          tool_id: string | null
+          tool_type: string | null
+          transaction_type: string
+          user_id: string
+        }
+        Insert: {
+          amount: number
+          balance_after: number
+          created_at?: string
+          description?: string | null
+          id?: string
+          stripe_payment_id?: string | null
+          tool_id?: string | null
+          tool_type?: string | null
+          transaction_type: string
+          user_id: string
+        }
+        Update: {
+          amount?: number
+          balance_after?: number
+          created_at?: string
+          description?: string | null
+          id?: string
+          stripe_payment_id?: string | null
+          tool_id?: string | null
+          tool_type?: string | null
+          transaction_type?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       documents: {
         Row: {
           content_json: Json | null
@@ -631,6 +670,36 @@ export type Database = {
           },
         ]
       }
+      tool_usage_log: {
+        Row: {
+          access_method: string
+          created_at: string
+          credits_cost: number
+          id: string
+          tool_id: string
+          tool_type: string
+          user_id: string
+        }
+        Insert: {
+          access_method?: string
+          created_at?: string
+          credits_cost?: number
+          id?: string
+          tool_id: string
+          tool_type: string
+          user_id: string
+        }
+        Update: {
+          access_method?: string
+          created_at?: string
+          credits_cost?: number
+          id?: string
+          tool_id?: string
+          tool_type?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       units: {
         Row: {
           address: string
@@ -686,6 +755,36 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      user_credits: {
+        Row: {
+          balance: number
+          created_at: string
+          id: string
+          total_earned: number
+          total_spent: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          balance?: number
+          created_at?: string
+          id?: string
+          total_earned?: number
+          total_spent?: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          balance?: number
+          created_at?: string
+          id?: string
+          total_earned?: number
+          total_spent?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
       }
       user_roles: {
         Row: {

@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useDashboardData } from "@/hooks/useDashboardData";
+import { ToolPromotion } from "@/components/tools/ToolPromotion";
 import { formatDistanceToNow } from "date-fns";
 import { de } from "date-fns/locale";
 
@@ -98,6 +99,9 @@ export default function Dashboard() {
               </Link>
             </div>
           </div>
+
+          {/* Tool Promotion */}
+          <ToolPromotion context="dashboard" maxItems={2} title="Ihre Mieterrechte prüfen" />
 
           {/* Last Messages */}
           <MessagesSection messages={data?.lastMessages ?? []} />
